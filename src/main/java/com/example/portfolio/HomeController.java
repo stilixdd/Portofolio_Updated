@@ -13,13 +13,13 @@ public class HomeController {
     public String home(Model model) {
         model.addAttribute("cvUpdated", "October 2025");
         model.addAttribute("aboutMeEng",
-            "I am a motivated and ambitious Computer Science student with strong interests in game development and software engineering. " +
-            "Currently studying Business Information Technology at TH Koeln, with previous experience in Games Engineering at TUM. " +
+            "I am a motivated and ambitious computer science student with strong interests in game development and software engineering. " +
+            "Currently studying Computer Science at TH Köln, with previous experience in Games Engineering at TUM. " +
             "I am seeking opportunities to apply my programming knowledge in real-world IT environments and continue developing my skills.");
         model.addAttribute("aboutMeGer",
             "Ich bin ein motivierter und ehrgeiziger Informatikstudent mit großem Interesse an Spieleentwicklung und Software Engineering. " +
-            "Derzeit studiere ich Wirtschaftsinformatik an der TH Köln und habe zuvor Games Engineering an der TU Muenchen studiert. " +
-            "Ich suche nach Moeglichkeiten, meine Programmierkenntnisse praktisch einzusetzen und meine Faehigkeiten weiterzuentwickeln.");
+            "Derzeit studiere ich Informatik an der TH Köln und habe zuvor Games Engineering an der TU München studiert. " +
+            "Ich suche nach Möglichkeiten, meine Programmierkenntnisse praktisch einzusetzen und meine Fähigkeiten weiterzuentwickeln.");
 
         // Move projects into the home model so the single page can render them.
         List<Project> projectList = List.of(
