@@ -1,0 +1,23 @@
+# === Maven build output ===
+/target/
+
+# === IDE / editor configs ===
+/.idea/
+/.vscode/
+*.iml
+
+# === OS junk files ===
+.DS_Store
+Thumbs.db
+
+# === Logs ===
+*.log
+
+# === Temporary files ===
+*.tmp
+*.bak
+
+# === Node / npm (if ever added) ===
+node_modules/
+dist/
+build/
