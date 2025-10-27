@@ -2,15 +2,12 @@
 FROM eclipse-temurin:17-jdk AS build
 WORKDIR /app
 COPY . .
-# Ensure the Maven wrapper is executable and build the jar
 RUN chmod +x mvnw && ./mvnw -B -DskipTests package
 
-# --- Run stage: tiny JRE image to run the jar ---
+# --- Run stage: lightweight JRE image to run the jar ---
 FROM eclipse-temurin:17-jre
 WORKDIR /app
-# Copy the fat jar built above (Spring Boot builds a single runnable jar)
 COPY --from=build /app/target/*.jar app.jar
-# Render sets PORT; forward it into Spring Boot
 ENV PORT=8080
 EXPOSE 8080
 CMD ["sh", "-c", "java -Dserver.port=$PORT -jar app.jar"]
