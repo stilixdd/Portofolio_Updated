@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Projects - Stiliyan Georgiev</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <h1><a href="/" class="brand">Stiliyan Georgiev</a></h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/projects">Projects</a>
+      <a href="#cv">CV</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="card">
+    <h2>My Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card" th:each="project, iterStat : ${projects}">
+        <div class="project-thumb">
+          <img th:src="@{${project.thumbnail}}" th:alt="${project.title}" />
+        </div>
+        <div class="project-body">
+          <h3 th:text="${project.title}"></h3>
+          <p th:text="${project.description}"></p>
+          <p class="tech" th:text="${#strings.listJoin(project.technologies, ' · ')}"></p>
+          <div class="project-actions">
+            <a th:href="${project.link}" target="_blank" rel="noopener noreferrer" class="btn">Open</a>
+            <button class="btn btn-outline" th:onclick="'openDetails(' + ${iterStat.index} + ')'" th:data-id="${project.title}">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="project-modal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <button id="modal-close" class="modal-close">✕</button>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+  function openDetails(index) {
+    const cards = document.querySelectorAll('.project-card');
+    const card = cards[index];
+    const title = card.querySelector('h3').innerText;
+    const desc = card.querySelector('p').innerText;
+    const tech = card.querySelector('.tech').innerText;
+    const thumb = card.querySelector('img').src;
+    const link = card.querySelector('a.btn').href;
+
+    const modal = document.getElementById('project-modal');
+    const modalBody = document.getElementById('modal-body');
+    modalBody.innerHTML = `
+      <h2>${title}</h2>
+      <img src="${thumb}" alt="${title}" style="max-width:100%; border-radius:8px; display:block; margin-bottom:1rem;">
+      <p>${desc}</p>
+      <p><strong>Tech:</strong> ${tech}</p>
+      <p><a href="${link}" target="_blank" class="btn">Open Project</a></p>
+    `;
+    modal.style.display = 'flex';
+  }
+  document.getElementById('modal-close').onclick = () => {
+    document.getElementById('project-modal').style.display = 'none';
+  };
+  window.onclick = e => {
+    if (e.target === document.getElementById('project-modal')) {
+      document.getElementById('project-modal').style.display = 'none';
+    }
+  };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+Email template (apply by email)
+
+Subject: Application — [Role] — Stiliyan Georgiev
+
+Dear [Hiring Manager Name],
+
+I am a Computer Science student at TH Köln (Business Information Technology) interested in the [Role] position. Please find my CV attached (German / English) and my portfolio at https://your-portfolio.example.com.
+
+Highlights:
+- Game dev experience: Space Shooter (Java/LibGDX) — playable demo & code on GitHub.
+- Support experience (SAP) and strong German (C1).
+
+I’d love to discuss how I can help your team.
+
+Best regards,
+Stiliyan Georgiev
++49 … — GitHub: github.com/stilixdd — LinkedIn: linkedin.com/in/stiliyan-georgiev

@@ -1,0 +1,14 @@
+Interview demo checklist & script
+
+Before interview:
+- Ensure portfolio URL works and CV links download.
+- Prepare 1-2 minute video of demos as backup (upload to itch.io / YouTube unlisted).
+
+3-minute demo script (Space Shooter):
+1) 20s - Pitch
+2) 60s - Live demo (or video)
+3) 45s - Code walkthrough (open EnemySpawner.java)
+4) 25s - Optimizations / next steps
+5) 10s - Closing + repo link
+
+Backup: Have README with run steps and a short recording available.
